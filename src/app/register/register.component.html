@@ -1,0 +1,171 @@
+<form [formGroup]="RegisterForm">
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Form</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+  <body>
+    <!-- Body of Form starts -->
+    <div class="container">
+      <img
+        src="https://i.imgur.com/YyJSohH.jpg"
+        alt="Logo Supergiros Academy"
+        style="max-width: 100%"
+      />
+      <!-- <a href="https://imgur.com/YyJSohH"><img src="https://i.imgur.com/YyJSohH.jpg" title="source: imgur.com" /></a> -->
+      <form method="post" autocomplete="on">
+        <!--First name-->
+        <div class="box">
+          <label for="nombre" class="fl fontLabel"> Nombre: </label>
+          <div class="new iconBox">
+            <i class="fa fa-user" aria-hidden="true"></i>
+          </div>
+          <div class="fr">
+            <input
+			[(ngModel)]="nombre"
+              type="text"
+              name="nombre"
+              placeholder="Digite el Nombre"
+              class="textBox"
+              autofocus="on"
+              required
+            />
+          </div>
+          <div class="clr"></div>
+        </div>
+        <!--First name-->
+
+        <!--Second name-->
+        <div class="box">
+          <label for="secondName" class="fl fontLabel"> Apellido: </label>
+          <div class="fl iconBox">
+            <i class="fa fa-user" aria-hidden="true"></i>
+          </div>
+          <div class="fr">
+            <input
+			[(ngModel)]="apellido"
+              type="text"
+              required
+              name="apellido"
+              placeholder="Digite el Apellido"
+              class="textBox"
+            />
+          </div>
+          <div class="clr"></div>
+        </div>
+        <!--Second name-->
+
+        <!---Tipo de documento------>
+        <div class="box">
+          <label for="Tipodocumento" class="fl fontLabel"> Tipo documento: </label>
+          <div class="fl iconBox">
+            <i class="fa fa-phone-square" aria-hidden="true"></i>
+          </div>
+          <select
+		  [(ngModel)]="opcionTipo"
+            name="Tipodocumento"
+            id="TD"
+            style="width: 250px; height: 35px"
+          >
+            <option value=1>CC</option>
+            <option value=21>CE</option>
+            <option value=22>Pasaporte</option>
+          </select>
+          <div class="clr"></div>
+        </div>
+        <!---Tipo de documento---->
+
+        <!---Documento.------>
+        <div class="box">
+          <label for="number" class="fl fontLabel"> Documento: </label>
+          <div class="fl iconBox">
+            <i class="fa fa-phone-square" aria-hidden="true"></i>
+          </div>
+          <div class="fr">
+            <input
+			  [(ngModel)]="numeroDocumento"
+              type="text"
+              required
+              name="numeroDocumento"
+              maxlength="10"
+              placeholder="No. de documento"
+              class="textBox"
+            />
+          </div>
+          <div class="clr"></div>
+        </div>
+        <!---Documento.---->
+
+        <div class="box">
+          <label for="phone" class="fl fontLabel"> Rol: </label>
+          <div class="fl iconBox">
+            <i class="fa fa-phone-square" aria-hidden="true"></i>
+          </div>
+          <select
+            [(ngModel)]="opcionSeleccionado"
+            name="Rol"
+            id="TD"
+            style="width: 250px; height: 35px"
+          >
+            <option value=1>Administrador</option>
+            <option value=2>User</option>
+          </select>
+          <div class="clr"></div>
+        </div>
+
+        <!---Email ID---->
+        <div class="box">
+          <label for="email" class="fl fontLabel"> Email ID: </label>
+          <div class="fl iconBox">
+            <i class="fa fa-envelope" aria-hidden="true"></i>
+          </div>
+          <div class="fr">
+            <input
+			[(ngModel)]="email"
+              type="email"
+              required
+              name="email"
+              placeholder="Email Id"
+              class="textBox"
+            />
+          </div>
+          <div class="clr"></div>
+        </div>
+        <!--Email ID----->
+
+        <!---Password------>
+        <div class="box">
+          <label for="password" class="fl fontLabel"> Contraseña: </label>
+          <div class="fl iconBox">
+            <i class="fa fa-key" aria-hidden="true"></i>
+          </div>
+          <div class="fr">
+            <input
+			  [(ngModel)]="password"
+              type="Password"
+              required
+              name="password"
+              placeholder="Contraseña"
+              class="textBox"
+            />
+          </div>
+          <div class="clr"></div>
+        </div>
+
+        <!---Submit Button------>
+        <div class="box" style="background: #293795">
+          <button type="button" class="registerButton" (click)="registrar()">
+            Registrar
+          </button>
+        </div>
+        <!---Submit Button----->
+      </form>
+    </div>
+    <!--Body of Form ends--->
+  </body>
+</html>
+</form>

@@ -1,0 +1,31 @@
+<form    [formGroup] ="loginForm">
+    <div class="imgcontainer">
+      <img src="./assets/logoSuperGiros.png" alt="Logo" class="logo">
+    </div>
+  
+    <div class="container">
+      <div class="form">
+      
+      <label for="uname"><b>Usuario</b></label>
+      <input name="username" [(ngModel)]="email"
+      formControlName="username" type="text" placeholder="" required>
+
+  
+      <label for="psw"><b>Contraseña</b></label>
+      <input name="password"
+      formControlName="password" type="password" placeholder="" required>
+  
+      <button type="submit" (click)="login()" >Iniciar sesión</button>
+      <label>
+        <input type="checkbox" checked="checked" name="remember"> Remember me
+      </label>
+    </div>
+      
+    </div>
+  
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" class="cancelbtn">Cancelar</button>
+      <span class="psw"> <a href="#">Olvidó su contraseña?</a></span>
+    </div>
+  
+  </form>

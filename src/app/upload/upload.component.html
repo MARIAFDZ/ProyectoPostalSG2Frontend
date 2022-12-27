@@ -1,0 +1,20 @@
+<!-- <input type="file" (change)="onFileSelected($event)"> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="Vista Upload" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="f">
+  <div class="container">
+    <img src="https://i.imgur.com/YyJSohH.jpg" alt="Logo Supergiros Academy" style="max-width:100%;">
+    <label for="file-input">Seleccionar archivo</label>
+    <input type="file" id="file-input" (change)="onFileSelected($event)">
+    <p>Archivo seleccionado: {{ selectedFileName }}</p>
+    <button (click)="uploadFile()">Subir archivo</button >
+  </div>
+  </div>
+</body>
+</html>

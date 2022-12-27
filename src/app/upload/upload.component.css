@@ -1,0 +1,33 @@
+input[type="file"] {
+    display: none;
+  }
+  label {
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    color: #333;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 18px;
+  }
+  
+  .container {
+    width: 500px;
+    margin: 0 auto;
+    text-align: center;
+    height: auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    padding: 40px;
+  }
+  
+  button{
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    color: rgb(255, 255, 255);
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 18px;
+    background-color: #293795;
+  }
