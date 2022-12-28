@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {Router} from '@angular/router';
 import { FormBuilder, Validators } from '@angular/forms';
+ 
 
 @Component({
   selector: 'app-register',
@@ -55,7 +56,7 @@ export class RegisterComponent {
     
     this.http.post<any>('http://localhost:8050/usuario/registroUsuario', body) 
     .subscribe((data:any) => {
-    console.log("Se envió la petición")
+    
   })
 }
 

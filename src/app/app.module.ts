@@ -8,16 +8,16 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { UploadComponent } from './upload/upload.component';
-import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
+    AppComponent,
     LoginComponent,
     RegisterComponent,
     UploadComponent,
-    ConfirmationDialogComponent,
-    
+
   ],
   imports: [
     BrowserModule,
