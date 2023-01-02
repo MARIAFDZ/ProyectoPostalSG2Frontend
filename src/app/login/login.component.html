@@ -1,31 +1,33 @@
-<form    [formGroup] ="loginForm">
-    <div class="imgcontainer">
-      <img src="./assets/logoSuperGiros.png" alt="Logo" class="logo">
-    </div>
-  
-    <div class="container">
-      <div class="form">
-      
-      <label for="uname"><b>Usuario</b></label>
-      <input name="username" [(ngModel)]="email"
-      formControlName="username" type="text" placeholder="" required>
+<div class="container">
 
-  
-      <label for="psw"><b>Contraseña</b></label>
-      <input name="password"
-      formControlName="password" type="password" placeholder="" required>
-  
-      <button type="submit" (click)="login()" >Iniciar sesión</button>
-      <label>
-        <input type="checkbox" checked="checked" name="remember"> Remember me
-      </label>
-    </div>
-      
-    </div>
-  
-    <div class="container" style="background-color:#f1f1f1">
-      <button type="button" class="cancelbtn">Cancelar</button>
-      <span class="psw"> <a href="#">Olvidó su contraseña?</a></span>
-    </div>
-  
-  </form>
+<form [formGroup]="loginForm">
+  <div class="imgcontainer">
+    <img src="https://i.imgur.com/YyJSohH.jpg" alt="Logo" class="logo" />
+  </div>
+
+  <!-- Usuario -->
+  <mat-form-field class="full-width" appearance="outline">
+    <mat-label>Usuario:</mat-label>
+    <input matInput [(ngModel)]="email" formControlName="username" name="username" placeholder="Digite su usuario">
+    <mat-error *ngIf="loginForm.invalid">El usuario obligatorio.</mat-error>
+  </mat-form-field>
+
+  <!-- Contraseña -->
+  <mat-form-field class="full-width" appearance="outline">
+    <mat-label>Contraseña:</mat-label>
+    <input type="password" matInput formControlName="password" name="password" placeholder="Digite su Contraseña">
+    <mat-error *ngIf="loginForm.value.password">La Contraseña debe tener almenos 8 caracteres Y 1 letra mayuscula.</mat-error>
+  </mat-form-field>
+
+
+  <!-- Boton de inicio de sesion -->
+  <div class="text-center">
+    <button mat-raised-button color="primary" [disabled]="loginForm.invalid" type="submit" (click)="login()">Iniciar
+      sesión</button>
+  </div>
+</form>
+
+<div *ngIf="jwtFailed" class="error-message">
+  Usuario o contraseña incorrectos
+</div>
+</div>

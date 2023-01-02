@@ -15,6 +15,7 @@ import {LoginComponent} from '../login/login.component'
 export class UploadComponent {
   title = 'carga';
   selectedFileName = '';
+  uploadSuccess=false;
 
   file! : any;
 
@@ -31,9 +32,19 @@ export class UploadComponent {
   onFileSelected(event:any) {
     this.file = event.target.files[0];
     this.selectedFileName = this.file.name;
-    
+
   }
 
+  logout():void{
+    this.router.navigate(['/login']);
+
+
+  }
+
+
+  history(){
+    this.router.navigate(['/files']);
+  }
   uploadFile() {
     //this.dato = this.child.email;
 
@@ -45,11 +56,15 @@ export class UploadComponent {
 
   }).subscribe((data:any) => {
     console.log("Se envió la petición")
+    this.uploadSuccess=true;
   })
-    
-  
+  setTimeout(() => {
+    this.uploadSuccess = false;
+  }, 3000);
+
+
   }
 
-  
+
 
 }

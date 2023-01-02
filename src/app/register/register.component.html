@@ -1,171 +1,83 @@
-<form [formGroup]="RegisterForm">
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <title>Form</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
-  </head>
-  <body>
-    <!-- Body of Form starts -->
-    <div class="container">
-      <img
-        src="https://i.imgur.com/YyJSohH.jpg"
-        alt="Logo Supergiros Academy"
-        style="max-width: 100%"
-      />
-      <!-- <a href="https://imgur.com/YyJSohH"><img src="https://i.imgur.com/YyJSohH.jpg" title="source: imgur.com" /></a> -->
-      <form method="post" autocomplete="on">
-        <!--First name-->
-        <div class="box">
-          <label for="nombre" class="fl fontLabel"> Nombre: </label>
-          <div class="new iconBox">
-            <i class="fa fa-user" aria-hidden="true"></i>
-          </div>
-          <div class="fr">
-            <input
-			[(ngModel)]="nombre"
-              type="text"
-              name="nombre"
-              placeholder="Digite el Nombre"
-              class="textBox"
-              autofocus="on"
-              required
-            />
-          </div>
-          <div class="clr"></div>
-        </div>
-        <!--First name-->
+<div class="bootstrap-wrapper">
+  <div class="container">
+    <div class="row" style="margin-top:20px;">
+      <div class="col-md-6 offset-md-3">
+        <img src="https://i.imgur.com/YyJSohH.jpg" width="100%" height="170px">
+        <h1 class="text-center"> Formulario de registro </h1>
 
-        <!--Second name-->
-        <div class="box">
-          <label for="secondName" class="fl fontLabel"> Apellido: </label>
-          <div class="fl iconBox">
-            <i class="fa fa-user" aria-hidden="true"></i>
-          </div>
-          <div class="fr">
-            <input
-			[(ngModel)]="apellido"
-              type="text"
-              required
-              name="apellido"
-              placeholder="Digite el Apellido"
-              class="textBox"
-            />
-          </div>
-          <div class="clr"></div>
-        </div>
-        <!--Second name-->
+        <!-- Formulario -->
+        <form [formGroup]="RegisterForm">
 
-        <!---Tipo de documento------>
-        <div class="box">
-          <label for="Tipodocumento" class="fl fontLabel"> Tipo documento: </label>
-          <div class="fl iconBox">
-            <i class="fa fa-phone-square" aria-hidden="true"></i>
-          </div>
-          <select
-		  [(ngModel)]="opcionTipo"
-            name="Tipodocumento"
-            id="TD"
-            style="width: 250px; height: 35px"
-          >
-            <option value=1>CC</option>
-            <option value=21>CE</option>
-            <option value=22>Pasaporte</option>
-          </select>
-          <div class="clr"></div>
-        </div>
-        <!---Tipo de documento---->
+          <!-- Nombre -->
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Nombre:</mat-label>
+            <input matInput [(ngModel)]="nombre" formControlName="nombre" name="nombre" placeholder="Digite su Nombre">
+            <mat-error *ngIf="RegisterForm.invalid">El nombre es obligatorio y no debe tener numeros.</mat-error>
+          </mat-form-field>
 
-        <!---Documento.------>
-        <div class="box">
-          <label for="number" class="fl fontLabel"> Documento: </label>
-          <div class="fl iconBox">
-            <i class="fa fa-phone-square" aria-hidden="true"></i>
-          </div>
-          <div class="fr">
-            <input
-			  [(ngModel)]="numeroDocumento"
-              type="text"
-              required
-              name="numeroDocumento"
-              maxlength="10"
-              placeholder="No. de documento"
-              class="textBox"
-            />
-          </div>
-          <div class="clr"></div>
-        </div>
-        <!---Documento.---->
+          <!-- Apellido -->
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Apellido:</mat-label>
+            <input matInput [(ngModel)]="apellido" formControlName="apellido" name="apellido" placeholder="Digite su Apellido">
+            <mat-error *ngIf="RegisterForm.invalid">El apellido es obligatorio y no debe tener numeros.</mat-error>
+          </mat-form-field>
 
-        <div class="box">
-          <label for="phone" class="fl fontLabel"> Rol: </label>
-          <div class="fl iconBox">
-            <i class="fa fa-phone-square" aria-hidden="true"></i>
-          </div>
-          <select
-            [(ngModel)]="opcionSeleccionado"
-            name="Rol"
-            id="TD"
-            style="width: 250px; height: 35px"
-          >
-            <option value=1>Administrador</option>
-            <option value=2>User</option>
-          </select>
-          <div class="clr"></div>
-        </div>
+          <!-- Contraseña -->
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Contraseña:</mat-label>
+            <input type="password" matInput [(ngModel)]="password" formControlName="password" name="password" placeholder="Digite su Contraseña">
+            <mat-error *ngIf="RegisterForm.value.password">La Contraseña debe tener almenos 8 caracteres Y 1 letra mayuscula.</mat-error>
+          </mat-form-field>
 
-        <!---Email ID---->
-        <div class="box">
-          <label for="email" class="fl fontLabel"> Email ID: </label>
-          <div class="fl iconBox">
-            <i class="fa fa-envelope" aria-hidden="true"></i>
-          </div>
-          <div class="fr">
-            <input
-			[(ngModel)]="email"
-              type="email"
-              required
-              name="email"
-              placeholder="Email Id"
-              class="textBox"
-            />
-          </div>
-          <div class="clr"></div>
-        </div>
-        <!--Email ID----->
+          <!-- Correo -->
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Email:</mat-label>
+            <input type="email" matInput [(ngModel)]="email" formControlName="email" name="email" pattern="[^\s]+"
+              placeholder="Digite su correo">
+            <mat-error *ngIf="RegisterForm.value.email">El correo ingresado no tiene un formato válido.</mat-error>
+          </mat-form-field>
 
-        <!---Password------>
-        <div class="box">
-          <label for="password" class="fl fontLabel"> Contraseña: </label>
-          <div class="fl iconBox">
-            <i class="fa fa-key" aria-hidden="true"></i>
-          </div>
-          <div class="fr">
-            <input
-			  [(ngModel)]="password"
-              type="Password"
-              required
-              name="password"
-              placeholder="Contraseña"
-              class="textBox"
-            />
-          </div>
-          <div class="clr"></div>
-        </div>
+          <!-- Tipo de documento -->
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Tipo de documento</mat-label>
+            <mat-select [(ngModel)]="opcionTipo" formControlName="opcionTipo" name="opcionTipo">
+              <mat-option value="1">CC</mat-option>
+              <mat-option value="2">CE</mat-option>
+              <mat-option value="3">Pasaporte</mat-option>
+            </mat-select>
+          </mat-form-field>
 
-        <!---Submit Button------>
-        <div class="box" style="background: #293795" >
-          <button type="button" class="registerButton" (click)="registrar()">
-            Registrar
-          </button>
-        </div>
-        <!---Submit Button----->
-      </form>
+          <!-- Numero de documento -->
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>No. Documento:</mat-label>
+            <input matInput [(ngModel)]="numeroDocumento" formControlName="numeroDocumento" name="numeroDocumento" type="number"
+              placeholder="Digite No. de documento">
+            <mat-error *ngIf="RegisterForm.invalid">El número de documento debe contener solo números.</mat-error>
+          </mat-form-field>
+
+          <!-- Rol-->
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Rol:</mat-label>
+            <mat-select [(ngModel)]="opcionSeleccionado" formControlName="rol" name="rol">
+              <mat-option value="1">Administrador</mat-option>
+              <mat-option value="2">User</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <!-- Botones de registro y vuelta a atras -->
+          <div class="text-center">
+            <button mat-raised-button color="primary" [disabled]="RegisterForm.invalid" (click)="registrar()">Registrar</button>
+            <button style="margin-left:20px;" mat-raised-button color="accent" (click)="logout()">Cerrar Sesión</button>
+            <div *ngIf="registerSucess" class="success-message">
+              ¡El registro del usuario fue exitoso!
+            </div>
+            <div *ngIf="registerFailed" class="error-message">
+              El usuario ya existe.
+            </div>
+          </div>
+        </form>
+        <br><br><br>
+      </div>
     </div>
-    <!--Body of Form ends--->
-  </body>
-</html>
-</form>
+  </div>
+</div>
